@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Austria Hiking Trip — Aug 20 – Sep 3, 2026</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap');
+
+  :root {
+    --bg: #0f1117;
+    --card: #1a1d27;
+    --card-hover: #222633;
+    --accent-1: #6c63ff;
+    --accent-2: #00c9a7;
+    --accent-3: #f7971e;
+    --text: #e4e6ed;
+    --text-muted: #8b8fa3;
+    --border: #2a2e3d;
+    --tag-bg: rgba(108,99,255,0.15);
+    --green-bg: rgba(0,201,167,0.12);
+    --orange-bg: rgba(247,151,30,0.12);
+    --red-bg: rgba(255,82,82,0.12);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .hero {
+    background: linear-gradient(135deg, #1a1035 0%, #0f1117 50%, #0a1628 100%);
+    padding: 80px 40px 60px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(ellipse at 30% 50%, rgba(108,99,255,0.08) 0%, transparent 60%),
+                radial-gradient(ellipse at 70% 50%, rgba(0,201,167,0.06) 0%, transparent 60%);
+    animation: drift 20s ease-in-out infinite;
+  }
+
+  @keyframes drift {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(-3%, 2%); }
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 12px;
+    position: relative;
+    background: linear-gradient(135deg, #fff 0%, #c4b5fd 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .hero .subtitle {
+    font-size: 1.15rem;
+    color: var(--text-muted);
+    font-weight: 300;
+    position: relative;
+    max-width: 600px;
+    margin: 0 auto 30px;
+  }
+
+  .timeline-bar {
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .timeline-segment {
+    flex: 1;
+    padding: 16px 20px;
+    border: 1px solid var(--border);
+    text-align: center;
+    position: relative;
+  }
+
+  .timeline-segment:first-child { border-radius: 12px 0 0 12px; }
+  .timeline-segment:last-child { border-radius: 0 12px 12px 0; }
+
+  .timeline-segment .region-name {
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 4px;
+  }
+
+  .timeline-segment .dates {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+  }
+
+  .seg-1 { background: rgba(108,99,255,0.1); border-color: rgba(108,99,255,0.3); }
+  .seg-1 .region-name { color: #a78bfa; }
+  .seg-2 { background: rgba(0,201,167,0.08); border-color: rgba(0,201,167,0.3); }
+  .seg-2 .region-name { color: #5eead4; }
+  .seg-3 { background: rgba(247,151,30,0.08); border-color: rgba(247,151,30,0.3); }
+  .seg-3 .region-name { color: #fbbf24; }
+
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+  .region-section { padding: 60px 0; }
+  .region-section + .region-section { border-top: 1px solid var(--border); }
+
+  .region-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 8px;
+  }
+
+  .region-number {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+  }
+
+  .rn-1 { background: rgba(108,99,255,0.2); color: #a78bfa; }
+  .rn-2 { background: rgba(0,201,167,0.15); color: #5eead4; }
+  .rn-3 { background: rgba(247,151,30,0.15); color: #fbbf24; }
+
+  .region-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 600;
+  }
+
+  .region-dates {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    margin-left: 56px;
+    margin-bottom: 32px;
+  }
+
+  .hotel-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 32px;
+    margin-bottom: 24px;
+    transition: border-color 0.2s;
+  }
+
+  .hotel-card:hover { border-color: rgba(108,99,255,0.4); }
+  .hotel-card.recommended { border-color: rgba(0,201,167,0.4); }
+  .hotel-card.recommended:hover { border-color: rgba(0,201,167,0.6); }
+
+  .rec-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--green-bg);
+    color: var(--accent-2);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 4px 12px;
+    border-radius: 6px;
+    margin-bottom: 12px;
+  }
+
+  .alt-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--tag-bg);
+    color: var(--accent-1);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 4px 12px;
+    border-radius: 6px;
+    margin-bottom: 12px;
+  }
+
+  .hotel-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+
+  .hotel-location {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 16px;
+  }
+
+  .hotel-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .meta-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: rgba(255,255,255,0.05);
+    padding: 6px 14px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+
+  .meta-tag .star { color: #fbbf24; }
+
+  .hotel-reasoning {
+    background: rgba(255,255,255,0.03);
+    border-left: 3px solid var(--accent-2);
+    padding: 16px 20px;
+    border-radius: 0 8px 8px 0;
+    margin-bottom: 20px;
+    font-size: 0.92rem;
+    line-height: 1.7;
+    color: var(--text);
+  }
+
+  .hotel-card:not(.recommended) .hotel-reasoning {
+    border-left-color: var(--accent-1);
+  }
+
+  .hotel-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 0;
+  }
+
+  .link-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .link-btn.maps {
+    background: rgba(66,133,244,0.12);
+    color: #93b4f5;
+    border: 1px solid rgba(66,133,244,0.25);
+  }
+  .link-btn.maps:hover { background: rgba(66,133,244,0.2); }
+
+  .link-btn.booking {
+    background: rgba(0,83,159,0.12);
+    color: #7bb8e8;
+    border: 1px solid rgba(0,83,159,0.25);
+  }
+  .link-btn.booking:hover { background: rgba(0,83,159,0.2); }
+
+  .link-btn.website {
+    background: rgba(255,255,255,0.05);
+    color: var(--text-muted);
+    border: 1px solid var(--border);
+  }
+  .link-btn.website:hover { background: rgba(255,255,255,0.08); }
+
+  .trails-section {
+    margin-top: 40px;
+  }
+
+  .trails-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .trail-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 12px;
+  }
+
+  .trail-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 18px 20px;
+    transition: border-color 0.2s;
+  }
+
+  .trail-card:hover { border-color: rgba(108,99,255,0.3); }
+
+  .trail-name {
+    font-weight: 600;
+    font-size: 0.92rem;
+    margin-bottom: 8px;
+  }
+
+  .trail-name a {
+    color: var(--text);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s;
+  }
+
+  .trail-name a:hover { border-bottom-color: var(--accent-1); }
+
+  .trail-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+
+  .trail-stat {
+    font-size: 0.78rem;
+    padding: 3px 10px;
+    border-radius: 6px;
+  }
+
+  .diff-easy { background: var(--green-bg); color: var(--accent-2); }
+  .diff-moderate { background: var(--orange-bg); color: var(--accent-3); }
+  .diff-hard { background: var(--red-bg); color: #ff5252; }
+  .stat-dist { background: rgba(255,255,255,0.05); color: var(--text-muted); }
+  .stat-elev { background: rgba(255,255,255,0.05); color: var(--text-muted); }
+  .stat-time { background: rgba(108,99,255,0.1); color: #a78bfa; }
+  .stat-rating { background: rgba(247,151,30,0.1); color: #fbbf24; }
+
+  .trail-note {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+
+  .divider {
+    height: 1px;
+    background: var(--border);
+    margin: 32px 0;
+  }
+
+  .footer {
+    text-align: center;
+    padding: 40px;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .price-highlight {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--accent-2);
+  }
+
+  .from-list-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.72rem;
+    color: #fbbf24;
+    background: rgba(247,151,30,0.1);
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-left: 8px;
+    vertical-align: middle;
+  }
+
+  @media (max-width: 768px) {
+    .hero { padding: 50px 20px 40px; }
+    .hero h1 { font-size: 2rem; }
+    .timeline-bar { flex-direction: column; gap: 8px; }
+    .timeline-segment { border-radius: 10px !important; }
+    .region-title { font-size: 1.5rem; }
+    .hotel-card { padding: 24px 20px; }
+    .trail-grid { grid-template-columns: 1fr; }
+    .region-dates { margin-left: 0; }
+    .hotel-links { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <h1>Austria Hiking Trip 2026</h1>
+  <p class="subtitle">Three regions, 14 nights, daily star-hikes from luxury mountain bases.<br>August 20 – September 3, 2026</p>
+  <div class="timeline-bar">
+    <div class="timeline-segment seg-1">
+      <div class="region-name">Zillertal, Tyrol</div>
+      <div class="dates">Aug 20 – 24 (4 nights)</div>
+    </div>
+    <div class="timeline-segment seg-2">
+      <div class="region-name">Dachstein / Salzkammergut</div>
+      <div class="dates">Aug 24 – 28 (4 nights)</div>
+    </div>
+    <div class="timeline-segment seg-3">
+      <div class="region-name">East Tyrol / Hohe Tauern</div>
+      <div class="dates">Aug 28 – Sep 3 (6 nights)</div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+<!-- ============================================ -->
+<!-- REGION 1: ZILLERTAL                           -->
+<!-- ============================================ -->
+<section class="region-section">
+  <div class="region-header">
+    <div class="region-number rn-1">1</div>
+    <h2 class="region-title">Zillertal, Tyrol</h2>
+  </div>
+  <p class="region-dates">August 20 – 24, 2026 &middot; 4 nights &middot; The Alps' most dramatic valley</p>
+
+  <!-- Recommended Hotel -->
+  <div class="hotel-card recommended">
+    <div class="rec-badge">&#9733; Top Pick</div>
+    <h3 class="hotel-name">ZillergrundRock Luxury Mountain Resort</h3>
+    <p class="hotel-location">Mayrhofen, Zillertal, Tyrol &middot; 20 min from Kaltenbach</p>
+    <div class="hotel-meta">
+      <span class="meta-tag"><span class="star">&#9733;</span> 5-star &middot; MICHELIN Key</span>
+      <span class="meta-tag">~<span class="price-highlight">&euro;380–550</span>/night</span>
+      <span class="meta-tag">All-inclusive gourmet</span>
+      <span class="meta-tag">3,500 m&sup2; spa &middot; Sky pool</span>
+    </div>
+    <div class="hotel-reasoning">
+      <strong>Why this hotel:</strong> The ZillergrundRock is the only MICHELIN Key-awarded hotel in the Zillertal and sits at the premier hiking hub of Mayrhofen — trailhead for the iconic Olpererhutte suspension bridge, Ahornspitze summit, and Berliner Hutte. The all-inclusive Gourmet Pension PLUS means you refuel properly between hikes. The sky pool and 3,500 m&sup2; spa are ideal for post-hike recovery. At &euro;380–550/night it sits right in your budget, and the included gourmet board (worth ~&euro;80–100/day) makes the effective value outstanding.
+    </div>
+    <div class="hotel-links">
+      <a href="https://www.google.com/maps/search/ZillergrundRock+Luxury+Mountain+Resort+Mayrhofen+Austria" target="_blank" class="link-btn maps">&#128205; Google Maps</a>
+      <a href="https://www.booking.com/hotel/at/alpin-lodge-das-zillergrund.html?checkin=2026-08-20&checkout=2026-08-24" target="_blank" class="link-btn booking">&#128197; Booking.com</a>
+      <a href="https://www.zillergrund.at/en/" target="_blank" class="link-btn website">&#127760; Website</a>
+    </div>
+  </div>
+
+  <!-- Alternative Hotel -->
+  <div class="hotel-card">
+    <div class="alt-badge">Alternative &middot; From Your List</div>
+    <h3 class="hotel-name">Hotel Post Kaltenbach <span class="from-list-tag">&#128204; Your Map</span></h3>
+    <p class="hotel-location">Dorfplatz 4, A-6272 Kaltenbach, Zillertal</p>
+    <div class="hotel-meta">
+      <span class="meta-tag"><span class="star">&#9733;</span> 4.8 (886 reviews)</span>
+      <span class="meta-tag">~&euro;260–490/night</span>
+      <span class="meta-tag">Half-board (5-course dinner)</span>
+      <span class="meta-tag">1,000 m&sup2; spa &middot; Indoor/outdoor pools</span>
+    </div>
+    <div class="hotel-reasoning">
+      <strong>Why consider:</strong> The highest-reviewed hotel on your list in Zillertal. Half-board includes a 5-course gourmet dinner — exceptional value. Centrally located in Kaltenbach, 500m from the Hochzillertal cable car. At &euro;260–490/night depending on room type, it's below your budget for standard rooms but a suite would approach &euro;500. Great option if you prefer a quieter village base over Mayrhofen's busier scene.
+    </div>
+    <div class="hotel-links">
+      <a href="https://www.google.com/maps/search/Hotel+Post+Dorfplatz+4+Kaltenbach+Zillertal+Austria" target="_blank" class="link-btn maps">&#128205; Google Maps</a>
+      <a href="https://www.booking.com/hotel/at/post-kaltenbach.html?checkin=2026-08-20&checkout=2026-08-24" target="_blank" class="link-btn booking">&#128197; Booking.com</a>
+      <a href="https://www.diepost.info/en/" target="_blank" class="link-btn website">&#127760; Website</a>
+    </div>
+  </div>
+
+  <!-- Trails -->
+  <div class="trails-section">
+    <h3 class="trails-title">&#128694; Hiking Trails Within 1-Hour Drive</h3>
+    <div class="trail-grid">
+
+      <div class="trail-card">
+        <div class="trail-name"><a href="https://www.alltrails.com/trail/austria/tyrol/zustieg-zur-olpererhutte-vom-schlegeisspeicher" target="_blank">Olpererhutte &amp; Suspension Bridge &#8599;</a></div>
+        <div class="trail-stats">
+          <span class="trail-stat diff-hard">Hard</span>
+          <span class="trail-stat stat-dist">7.1 km</span>
+          <span class="trail-stat stat-elev">&#8593; 609 m</span>
+          <span class="trail-stat stat-time">3.5–4 h</span>
+          <span class="trail-stat stat-rating">&#9733; 4.8 (551)</span>
+        </div>
+        <p class="trail-note">THE iconic Zillertal hike. Famous panoramic suspension bridge above Schlegeis reservoir — the most Instagrammed spot in the valley. Must-do.</p>
+      </div>
+
+      <div class="trail-card">
+        <div class="trail-name"><a href="https://www.alltrails.com/trail/austria/tyrol/4-gipfel-tour" target="_blank">4 Gipfel Tour (4 Peaks) &#8599;</a></div>
+        <div class="trail-stats">
+          <span class="trail-stat diff-hard">Hard</span>
+          <span class="trail-stat stat-dist">14.6 km</span>
+          <span class="trail-stat stat-elev">&#8593; 939 m</span>
+          <span class="trail-stat stat-time">~6 h</span>
+        </div>
+        <p class="trail-note">Four summits in one day: Arbiskopf, Gedrechter, Marchkopf (2,499m), and Wimbachkopf. Starts directly from Kaltenbach. Requires sure-footedness.</p>
+      </div>
+
+      <div class="trail-card">
+        <div class="trail-name"><a href="https://www.alltrails.com/trail/austria/tyrol/gipfelwanderung-zur-ahornspitze" target="_blank">Ahornspitze Summit (2,970m) &#8599;</a></div>
+        <div class="trail-stats">
+          <span class="trail-stat diff-hard">Hard</span>
+          <span class="trail-stat stat-dist">11.4 km</span>
+          <span class="trail-stat stat-elev">&#8593; 1,068 m</span>
+          <span class="trail-stat stat-time">~6.5 h</span>
+          <span class="trail-stat stat-rating">&#9733; 4.7 (72)</span>
+        </div>
+        <p class="trail-note">Major summit tour from Ahornbahn mountain station above Mayrhofen. Scrambling near the top. Gondola up 7:30am, last down 5pm.</p>
+      </div>
+
+      <div class="trail-card">
+        <div class="trail-name"><a href="https://www.alltrails.com/trail/austria/tyrol/berliner-hutte-zustieg-vom-gasthaus-breitlahner-uber-die-alpenrose" target="_blank">Berliner Hutte (Alpine Museum) &#8599;</a></div>
+        <div class="trail-stats">
+          <span class="trail-stat diff-hard">Hard</span>
+          <span class="trail-stat stat-dist">18.3 km</span>
+          <span class="trail-stat stat-elev">&#8593; 846 m</span>
+          <span class="trail-stat stat-time">6.5–7 h</span>
+        </div>
+        <p class="trail-note">Long valley hike to the largest alpine club hut (2,042m). Heritage-listed building doubling as alpine museum. A classic Zillertal experience.</p>
+      </div>
+
+      <div class="trail-card">
+        <div class="trail-name"><a href="https://www.alltrails.com/trail/austria/tyrol/zur-kristallhutte" target="_blank">Kristallhutte Themed Trail &#8599;</a></div>
+        <div class="trail-stats">
+          <span class="trail-stat diff-moderate">Moderate</span>
+          <span class="trail-stat stat-dist">7.7 km</span>
+          <span class="trail-stat stat-elev">&#8593; 467 m</span>
+          <span class="trail-stat stat-time">~3 h</span>
+        </div>
+        <p class="trail-note">8 themed stations about local wildlife. Panoramic views from Kristallhutte at 2,147m. Wooden loungers and picnic spots. Great for a lighter day.</p>
+      </div>
+
+      <div class="trail-card">
+        <div class="trail-name"><a href="https://www.alltrails.com/trail/austria/tyrol/zum-kaltenbach-wasserfall" target="_blank">Kaltenbach Waterfall Loop &#8599;</a></div>
+        <div class="trail-stats">
+          <span class="trail-stat diff-moderate">Moderate</span>
+          <span class="trail-stat stat-dist">1.9 km</span>
+          <span class="trail-stat stat-elev">&#8593; 145 m</span>
+          <span class="trail-stat stat-time">30–60 min</span>
+        </div>
+        <p class="trail-note">Quick family-friendly walk through forest to a waterfall. Perfect warm-up on arrival day or after a long drive.</p>
+      </div>
+
+      <div class="trail-card">
+        <div class="trail-name"><a href="https://www.alltrails.com/de/route/austria/tyrol/wetterkreuzspitze-ab-kaltenbacher-skihutte" target="_blank">Wetterkreuzspitze Summit &#8599;</a></div>
+        <div class="trail-stats">
+          <span class="trail-stat diff-hard">Hard</span>
+          <span class="trail-stat stat-dist">5 km</span>
+          <span class="trail-stat stat-elev">&#8593; 533 m</span>
+          <span class="trail-stat stat-time">2–2.5 h</span>
+        </div>
+        <p class="trail-note">Short but steep summit tour. Lonely peak with panoramic views between the main valley and Hochfugen. Less crowded.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- REGION 2: DACHSTEIN / SALZKAMMERGUT           -->
+<!-- ============================================ -->
+<section class="region-section">
+  <div class="region-header">
+    <div class="region-number rn-2">2</div>
+    <h2 class="region-title">Dachstein / Salzkammergut</h2>
+  </div>
+  <p class="region-dates">August 24 – 28, 2026 &middot; 4 nights &middot; UNESCO lakes &amp; glacier peaks</p>
+
+  <!-- Recommended Hotel -->
+  <div class="hotel-card recommended">
+    <div class="rec-badge">&#9733; Top Pick &middot; From Your List</div>
+    <h3 class="hotel-name">Dachsteinkoenig — Familux Resort <span class="from-list-tag">&#128204; Your Map</span></h3>
+    <p class="hotel-location">Am Hornspitz 1, 4824 Gosau, Upper Austria &middot; At the foot of the Dachstein</p>
+    <div class="hotel-meta">
+      <span class="meta-tag"><span class="star">&#9733;</span> 4.9 (1,665 reviews) &middot; #1 in Gosau</span>
+      <span class="meta-tag">~<span class="price-highlight">&euro;400–550</span>/night</span>
+      <span class="meta-tag">All-inclusive (full board)</span>
+      <span class="meta-tag">2,000 m&sup2; play area &middot; Pools &middot; 100m slide</span>
+    </div>
+    <div class="hotel-reasoning">
+      <strong>Why this hotel:</strong> The highest-rated hotel on your entire list at 4.9 stars with 1,665 reviews — extraordinary for a mountain hotel. Located directly in Gosau, the ideal star-hiking base for the Dachstein region. Gosausee trails start minutes away, and the Krippenstein/5 Fingers viewpoint is a 20-minute drive. All-inclusive means zero logistics during hiking days. <strong>Note:</strong> This is a family-only resort (designed for guests with children). If traveling without kids, see the alternative below.
+    </div>
+    <div class="hotel-links">
+      <a href="https://www.google.com/maps/search/Dachsteink%C3%B6nig+Familux+Resort+Gosau+Austria" target="_blank" class="link-btn maps">&#128205; Google Maps</a>
+      <a href="https://www.dachsteinkoenig.at/en/onlinebooking/" target="_blank" class="link-btn booking">&#128197; Book Direct (not on Booking.com)</a>
+      <a href="https://www.dachsteinkoenig.at/en/" target="_blank" class="link-btn website">&#127760; Website</a>
+    </div>
+  </div>
+
+  <!-- Alternative Hotel -->
+  <div class="hotel-card">
+    <div class="alt-badge">Alternative &middot; Adults or Flexible</div>
+    <h3 class="hotel-name">Hotel Seevilla Altaussee</h3>
+    <p class="hotel-location">Fischerndorf 60, 8992 Altaussee &middot; 40 min from Gosau</p>
+    <div class="hotel-meta">
+      <span class="meta-tag"><span class="star">&#9733;</span> 9.2 on Booking.com</span>
+      <span class="meta-tag">~&euro;380–500/night</span>
+      <span class="meta-tag">4-star Superior &middot; Romantik Hotel</span>
+      <span class="meta-tag">Private lake beach &middot; Pool &middot; Free bikes</span>
+    </div>
+    <div class="hotel-reasoning">
+      <strong>Why consider:</strong> Lakefront Romantik hotel on Lake Altaussee with a private beach — the most scenic setting in the region. Surrounded by the Totes Gebirge range with the Loser mountain cable car nearby. Hallstatt is 30 min, Gosausee 40 min. Rated 9.2 on Booking.com. Works for all group types (couples, families, friends). Outstanding restaurant and the lake swimming between hikes is unbeatable.
+    </div>
+    <div class="hotel-links">
+      <a href="https://www.google.com/maps/search/Hotel+Seevilla+Altaussee+Fischerndorf+60+Austria" target="_blank" class="link-btn maps">&#128205; Google Maps</a>
+      <a href="https://www.booking.com/hotel/at/seevilla-altaussee.html?checkin=2026-08-24&checkout=2026-08-28" target="_blank" class="link-btn booking">&#128197; Booking.com</a>
+      <a href="https://www.seevilla.at/en/" target="_blank" class="link-btn website">&#127760; Website</a>
+    </div>
+  </div>
+
+  <!-- Trails -->
+  <div class="trails-section">
+    <h3 class="trails-title">&#128694; Hiking Trails Within 1-Hour Drive</h3>
+    <div class="trail-grid">
+
+      <div class="trail-card">
+        <div class="trail-name"><a href="https://www.alltrails.com/trail/austria/upper-austria/vorderer-und-hinterer-gosausee" target="_blank">Both Gosau Lakes (Vorderer &amp; Hinterer) &#8599;</a></div>
+        <div class="trail-stats">
+          <span class="trail-stat diff-moderate">Moderate</span>
+          <span class="trail-stat stat-dist">11 km</span>
+          <span class="trail-stat stat-elev">&#8593; 350 m</span>
+          <span class="trail-stat stat-time">3–3.5 h</span>
+          <span class="trail-stat stat-rating">&#9733; 4.8 (382)</span>
+        </div>
+        <p class="trail-note">"One of the most beautiful valleys in the Alps." Walk past both Gosau lakes beneath the Dachstein glacier and Gosaukamm ridgeline. The front lake is already on your map!</p>
+      </div>
+
+      <div class="trail-card">
+        <div class="trail-name"><a href="https://www.alltrails.com/trail/austria/upper-austria/von-sankt-wolfgang-im-salzkammergut-auf-den-schafberg" target="_blank">Schafberg Summit (1,783m) &#8599;</a></div>
+        <div class="trail-stats">
+          <span class="trail-stat diff-hard">Hard</span>
+          <span class="trail-stat stat-dist">14 km</span>
+          <span class="trail-stat stat-elev">&#8593; 1,172 m</span>
+          <span class="trail-stat stat-time">7–7.5 h</span>
+          <span class="trail-stat stat-rating">&#9733; 4.8 (318)</span>
+        </div>
+        <p class="trail-note">The most popular summit in Salzkammergut. 360&deg; views over multiple lakes from St. Wolfgang. Descend by historic cog railway. ~50 min drive from Gosau.</p>
+      </div>
+
+      <div class="trail-card">
+        <div class="trail-name"><a href="https://www.alltrails.com/trail/austria/upper-austria/wanderung-am-krippenstein" target="_blank">Krippenstein &amp; 5 Fingers Viewpoint &#8599;</a></div>
+        <div class="trail-stats">
+          <span class="trail-stat diff-moderate">Moderate</span>
+          <span class="trail-stat stat-dist">8 km</span>
+          <span class="trail-stat stat-elev">&#8593; 110 m</span>
+          <span class="trail-stat stat-time">2.5–3 h</span>
+          <span class="trail-stat stat-rating">&#9733; 4.5 (70)</span>
+        </div>
+        <p class="trail-note">Cable car up, then walk to the famous "5 Fingers" platform suspended 400m above Hallstatt lake. One of Austria's most dramatic viewpoints. 20 min drive.</p>
+      </div>
+
+      <div class="trail-card">
+        <div class="trail-name"><a href="https://www.alltrails.com/trail/austria/upper-austria/vorderer-gosausee-zwieselalm" target="_blank">Gosausee to Zwieselalm &#8599;</a></div>
+        <div class="trail-stats">
+          <span class="trail-stat diff-hard">Hard</span>
+          <span class="trail-stat stat-dist">14.8 km</span>
+          <span class="trail-stat stat-elev">&#8593; 835 m</span>
+          <span class="trail-stat stat-time">6–6.5 h</span>
+          <span class="trail-stat stat-rating">&#9733; 4.6 (30)</span>
+        </div>
+        <p class="trail-note">From Gosausee up to the Zwieselalm alpine meadow with panoramic Dachstein massif views. Can be shortened via Gosaukamm cable car.</p>
+      </div>
+
+      <div class="trail-card">
+        <div class="trail-name"><a href="https://www.alltrails.com/trail/austria/upper-austria/vorderer-gosausee" target="_blank">Vorderer Gosausee Lake Loop &#8599;</a></div>
+        <div class="trail-stats">
+          <span class="trail-stat diff-moderate">Moderate</span>
+          <span class="trail-stat stat-dist">8 km</span>
+          <span class="trail-stat stat-elev">&#8593; 202 m</span>
+          <span class="trail-stat stat-time">~2 h</span>
+          <span class="trail-stat stat-rating">&#9733; 4.7 (513)</span>
+        </div>
+        <p class="trail-note">Iconic loop around the front Gosau lake. Dachstein reflected in turquoise water — one of the most photographed scenes in Austria.</p>
+      </div>
+
+      <div class="trail-card">
+        <div class="trail-name"><a href="https://www.alltrails.com/trail/austria/upper-austria/schonbergalm-krippenstein-rieseneishohle" target="_blank">Krippenstein &amp; Giant Ice Cave &#8599;</a></div>
+        <div class="trail-stats">
+          <span class="trail-stat diff-hard">Hard</span>
+          <span class="trail-stat stat-dist">16.7 km</span>
+          <span class="trail-stat stat-elev">&#8593; 1,534 m</span>
+          <span class="trail-stat stat-time">8.5–9.5 h</span>
+          <span class="trail-stat stat-rating">&#9733; 4.6 (27)</span>
+        </div>
+        <p class="trail-note">Full ascent of Krippenstein from the valley, passing the Dachstein Giant Ice Cave and Mammoth Cave. A serious full-day commitment.</p>
+      </div>
+
+      <div class="trail-card">
+        <div class="trail-name"><a href="https://www.alltrails.com/trail/austria/upper-austria/vormauerstein" target="_blank">Vormauerstein &#8599;</a></div>
+        <div class="trail-stats">
+          <span class="trail-stat diff-moderate">Moderate</span>
+          <span class="trail-stat stat-dist">~7 km</span>
+          <span class="trail-stat stat-elev">&#8593; 600 m</span>
+          <span class="trail-stat stat-time">3.5–4 h</span>
+          <span class="trail-stat stat-rating">&#9733; 4.7 (52)</span>
+        </div>
+        <p class="trail-note">Local summit with excellent views over the Hallstatt lake area. Less crowded than Schafberg — a hidden gem.</p>
+      </div>
+
+      <div class="trail-card">
+        <div class="trail-name"><a href="https://www.alltrails.com/trail/austria/upper-austria/wiesberghaus-ab-dachstein-krippenstein-seilbahn" target="_blank">Wiesberghaus Hut Walk &#8599;</a></div>
+        <div class="trail-stats">
+          <span class="trail-stat diff-moderate">Moderate</span>
+          <span class="trail-stat stat-dist">5 km</span>
+          <span class="trail-stat stat-elev">&#8593; 249 m</span>
+          <span class="trail-stat stat-time">1.5–2 h</span>
+          <span class="trail-stat stat-rating">&#9733; 4.5 (13)</span>
+        </div>
+        <p class="trail-note">Shorter alpine walk from Krippenstein cable car across the Dachstein plateau to a mountain hut. Half-day option with lunch.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- REGION 3: EAST TYROL / HOHE TAUERN            -->
+<!-- ============================================ -->
+<section class="region-section">
+  <div class="region-header">
+    <div class="region-number rn-3">3</div>
+    <h2 class="region-title">East Tyrol / Hohe Tauern</h2>
+  </div>
+  <p class="region-dates">August 28 – September 3, 2026 &middot; 6 nights &middot; Grossglockner, glaciers &amp; Dolomite views</p>
+
+  <!-- Recommended Hotel -->
+  <div class="hotel-card recommended">
+    <div class="rec-badge">&#9733; Top Pick</div>
+    <h3 class="hotel-name">Gradonna Mountain Resort</h3>
+    <p class="hotel-location">Gradonna 1, 9981 Kals am Grossglockner, East Tyrol &middot; 1,500m altitude</p>
+    <div class="hotel-meta">
+      <span class="meta-tag"><span class="star">&#9733;</span> 4.7 TripAdvisor &middot; Europe's Leading Green Resort</span>
+      <span class="meta-tag">~<span class="price-highlight">&euro;416–564</span>/night</span>
+      <span class="meta-tag">Half-board (5-course dinner)</span>
+      <span class="meta-tag">3,000 m&sup2; spa &middot; Car-free resort</span>
+    </div>
+    <div class="hotel-reasoning">
+      <strong>Why this hotel:</strong> Directly at the foot of Austria's highest peak — the Grossglockner (3,798m). At 1,500m altitude you're already in the mountains when you wake up. The Studlhutte trail to the base of the Grossglockner starts a 15-minute drive away. Car-free resort with 36 mountain chalets. ISO 14001 certified as "Europe's Leading Green Resort." A Junior Suite at ~&euro;490/night (half-board for 2) fits your budget perfectly. The 6-night stay here as your trip finale gives you time to tackle the region's most spectacular trails: glaciers, Dolomite views, and Hohe Tauern National Park.
+    </div>
+    <div class="hotel-links">
+      <a href="https://www.google.com/maps/search/Gradonna+Mountain+Resort+Kals+am+Grossglockner+Austria" target="_blank" class="link-btn maps">&#128205; Google Maps</a>
+      <a href="https://www.booking.com/hotel/at/gradonna-mountain-resort-chalets.html?checkin=2026-08-28&checkout=2026-09-03" target="_blank" class="link-btn booking">&#128197; Booking.com</a>
+      <a href="https://www.gradonna.at/en/" target="_blank" class="link-btn website">&#127760; Website</a>
+    </div>
+  </div>
+
+  <!-- Alternative Hotel -->
+  <div class="hotel-card">
+    <div class="alt-badge">Alternative &middot; From Your List</div>
+    <h3 class="hotel-name">Dolomiten Residenz Sporthotel Sillian <span class="from-list-tag">&#128204; Your Map</span></h3>
+    <p class="hotel-location">Sillian, East Tyrol &middot; Gateway to Italian Dolomites</p>
+    <div class="hotel-meta">
+      <span class="meta-tag"><span class="star">&#9733;</span> 4.8 (798 reviews)</span>
+      <span class="meta-tag">~&euro;316–528/night (half-board)</span>
+      <span class="meta-tag">4-star Superior</span>
+      <span class="meta-tag">Free cable cars in 4 valleys</span>
+    </div>
+    <div class="hotel-reasoning">
+      <strong>Why consider:</strong> From your saved list and an excellent choice. The unique advantage is the <strong>free cable car pass</strong> (included Jun–Sep) covering Sillian, Matrei, Kals, and St. Jakob — a huge bonus for hiking access. Strategically positioned between the Italian Dolomites (Tre Cime di Lavaredo, 15 min to Sexten) and Austrian Hohe Tauern. Premium Suite De Luxe at ~&euro;528/night hits your budget. Half-board with 5-course themed dinners included. 6-night stay avoids the short-stay surcharge.
+    </div>
+    <div class="hotel-links">
+      <a href="https://www.google.com/maps/search/Dolomiten+Residenz+Sporthotel+Sillian+Austria" target="_blank" class="link-btn maps">&#128205; Google Maps</a>
+      <a href="https://www.booking.com/hotel/at/sporthotel-sillian.html?checkin=2026-08-28&checkout=2026-09-03" target="_blank" class="link-btn booking">&#128197; Booking.com</a>
+      <a href="https://www.sporthotel-sillian.at/en/" target="_blank" class="link-btn website">&#127760; Website</a>
+    </div>
+  </div>
+
+  <!-- Trails -->
+  <div class="trails-section">
+    <h3 class="trails-title">&#128694; Hiking Trails Within 1-Hour Drive</h3>
+    <div class="trail-grid">
+
+      <div class="trail-card">
+        <div class="trail-name"><a href="https://www.alltrails.com/trail/austria/tyrol/gletscherlehrweg-innergschloss" target="_blank">Innergschloss Glacier Trail &#8599;</a></div>
+        <div class="trail-stats">
+          <span class="trail-stat diff-hard">Hard</span>
+          <span class="trail-stat stat-dist">9.3 km</span>
+          <span class="trail-stat stat-elev">&#8593; 680 m</span>
+          <span class="trail-stat stat-time">4–5 h</span>
+          <span class="trail-stat stat-rating">&#9733; 4.8 (89)</span>
+        </div>
+        <p class="trail-note">Highest-rated trail in the area. Alpine hike to the Schlatenkees glacier with overwhelming Grossvenediger ice world views. Tractor shuttle access (&euro;6 pp).</p>
+      </div>
+
+      <div class="trail-card">
+        <div class="trail-name"><a href="https://www.alltrails.com/trail/austria/tyrol/studlhutte-am-grossglockner" target="_blank">Studlhutte at Grossglockner &#8599;</a></div>
+        <div class="trail-stats">
+          <span class="trail-stat diff-hard">Hard</span>
+          <span class="trail-stat stat-dist">10.6 km</span>
+          <span class="trail-stat stat-elev">&#8593; 874 m</span>
+          <span class="trail-stat stat-time">5–5.5 h</span>
+          <span class="trail-stat stat-rating">&#9733; 4.7 (56)</span>
+        </div>
+        <p class="trail-note">Hut hike to 2,801m at the foot of Austria's highest peak (Grossglockner, 3,798m). Snow/ice possible even in summer. 15 min from Gradonna.</p>
+      </div>
+
+      <div class="trail-card">
+        <div class="trail-name"><a href="https://www.alltrails.com/trail/austria/tyrol/von-der-dolomitenstrasse-zur-karlsbader-hutte" target="_blank">Karlsbader Hutte (Lienz Dolomites) &#8599;</a></div>
+        <div class="trail-stats">
+          <span class="trail-stat diff-hard">Hard</span>
+          <span class="trail-stat stat-dist">9.3 km</span>
+          <span class="trail-stat stat-elev">&#8593; 724 m</span>
+          <span class="trail-stat stat-time">4.5–5 h</span>
+          <span class="trail-stat stat-rating">&#9733; 4.8 (85)</span>
+        </div>
+        <p class="trail-note">Beautifully situated hut at Laserzsee lake in the Lienz Dolomites. Steep with some exposed sections. ~40 min drive from base.</p>
+      </div>
+
+      <div class="trail-card">
+        <div class="trail-name"><a href="https://www.alltrails.com/trail/austria/tyrol/europa-panoramaweg-kalser-hohe-adlerlounge" target="_blank">Europa Panoramaweg &amp; Kalser Hohe &#8599;</a></div>
+        <div class="trail-stats">
+          <span class="trail-stat diff-moderate">Moderate</span>
+          <span class="trail-stat stat-dist">10.3 km</span>
+          <span class="trail-stat stat-elev">&#8593; 578 m</span>
+          <span class="trail-stat stat-time">4–4.5 h</span>
+        </div>
+        <p class="trail-note">Panoramic loop from Goldried cable car (2,167m) in Matrei. Stunning Grossglockner group views. Mountain restaurants along the way. ~40 min drive.</p>
+      </div>
+
+      <div class="trail-card">
+        <div class="trail-name"><a href="https://www.alltrails.com/trail/austria/tyrol/nationalpark-wanderung-innergschloss" target="_blank">Innergschloss National Park Loop &#8599;</a></div>
+        <div class="trail-stats">
+          <span class="trail-stat diff-moderate">Moderate</span>
+          <span class="trail-stat stat-dist">9.2 km</span>
+          <span class="trail-stat stat-elev">&#8593; 309 m</span>
+          <span class="trail-stat stat-time">2.5–3 h</span>
+          <span class="trail-stat stat-rating">&#9733; 4.6 (145)</span>
+        </div>
+        <p class="trail-note">Family-friendly loop in Hohe Tauern National Park — "one of the most beautiful valley heads in the Eastern Alps." Tractor shuttle from parking.</p>
+      </div>
+
+      <div class="trail-card">
+        <div class="trail-name"><a href="https://www.alltrails.com/trail/italy/south-tyrol/monte-elmo-sillianer-hutte-und-sexten" target="_blank">Monte Elmo to Sillianer Hutte &#8599;</a></div>
+        <div class="trail-stats">
+          <span class="trail-stat diff-moderate">Moderate</span>
+          <span class="trail-stat stat-dist">12.6 km</span>
+          <span class="trail-stat stat-elev">&#8593; 446 m</span>
+          <span class="trail-stat stat-time">5.5–6 h</span>
+          <span class="trail-stat stat-rating">&#9733; 4.6 (33)</span>
+        </div>
+        <p class="trail-note">Cross-border trail from Italy to Austria. Magnificent Sexten Dolomites and Drei Zinnen (Tre Cime) views. Cable car start (~&euro;25). 15 min from Sillian.</p>
+      </div>
+
+      <div class="trail-card">
+        <div class="trail-name"><a href="https://www.alltrails.com/trail/austria/tyrol/rund-um-den-thurntaler" target="_blank">Around the Thurntaler &#8599;</a></div>
+        <div class="trail-stats">
+          <span class="trail-stat diff-moderate">Moderate</span>
+          <span class="trail-stat stat-dist">9.8 km</span>
+          <span class="trail-stat stat-elev">&#8593; 476 m</span>
+          <span class="trail-stat stat-time">~3.5 h</span>
+        </div>
+        <p class="trail-note">Gondola-assisted loop from Sillian (2,100m start). Alpine meadows with panoramic Carnic Alps and Lienz Dolomites views. Multiple huts for refreshments.</p>
+      </div>
+
+      <div class="trail-card">
+        <div class="trail-name"><a href="https://www.alltrails.com/trail/austria/tyrol/via-alpina-red-trail-etappe-26-sillianer-hutte-drei-zinnen-hutte-rifugio-locatelli" target="_blank">Via Alpina to Drei Zinnen (Tre Cime) &#8599;</a></div>
+        <div class="trail-stats">
+          <span class="trail-stat diff-hard">Hard</span>
+          <span class="trail-stat stat-dist">21.1 km</span>
+          <span class="trail-stat stat-elev">&#8593; 1,481 m</span>
+          <span class="trail-stat stat-time">9–10 h</span>
+        </div>
+        <p class="trail-note">Epic Via Alpina segment ending at Tre Cime di Lavaredo. Full-day alpine commitment requiring shuttle logistics. For experienced hikers only.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <p>Compiled for Tamar Levy's Austria map &middot; Prices are estimates for August 2026 — verify on Booking.com &middot; AllTrails links verified May 2026</p>
+  <p style="margin-top: 8px; color: #555;">Generated with Claude Code</p>
+</div>
+
+</body>
+</html>
